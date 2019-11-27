@@ -132,10 +132,12 @@ function respond(val) {
     val = messageSorry;
   }
 
+  if(val !== messageRecording) {
   let msg = new SpeechSynthesisUtterance();
   msg.text = val;
   msg.lang = "en-US";
   window.speechSynthesis.speak(msg);
+  }
 
   // add the new message in the chat area
   createBubbleChat(val, "other");
