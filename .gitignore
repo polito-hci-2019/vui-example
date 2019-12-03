@@ -1,2 +1,6 @@
 .DS_Store
 .idea/
+vendor/
+composer.lock
+client-secret.json
+composer.phar
