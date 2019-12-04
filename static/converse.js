@@ -22,12 +22,14 @@ $(document).ready(function() {
   $speechInput.keypress((event) => {
     if (event.which === 13) { // 13 is carriage return (new line)
       event.preventDefault();
-      // add the new message in the chat area
-      createBubbleChat($speechInput.val(), "self");
-      // send the text to the server
-      send();
-      // clear the input
-      $speechInput.val("");
+      if($speechInput.val()!=="") {
+        // add the new message in the chat area
+        createBubbleChat($speechInput.val(), "self");
+        // send the text to the server
+        send();
+        // clear the input
+        $speechInput.val("");
+      }
     }
   });
   $recBtn.on("click", function(event) {
