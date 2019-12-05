@@ -4,7 +4,7 @@ use Google\Cloud\Dialogflow\V2\SessionsClient;
 use Google\Cloud\Dialogflow\V2\QueryInput;
 use Google\Cloud\Dialogflow\V2\TextInput;
 
-require __DIR__.'vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 if(isset($_POST['submit'])) {
     $userquery = $_POST['message'];
@@ -15,7 +15,8 @@ if(isset($_POST['submit'])) {
 
     try {
         // replace the project id, since it is "fake"
-        $session = $sessionClient->sessionName("weatheragent-ysfsew", 123456 ?: uniqid());
+        // 12345 is the session id, which should not be changed within an entire conversation with a single user
+        $session = $sessionClient->sessionName("weatheragent-abcdef", 123456 ?: uniqid());
 
         // prepare a new query input...
         $queryInput = new QueryInput();
